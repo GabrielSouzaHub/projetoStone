@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
-const Usuario = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -15,9 +15,17 @@ const Usuario = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+        
         //select: false
     },
+},
+ {
+    timestamps: true,
 });
+
+UserSchema.pre('save', async (next)=> {
+    const user = this;
+})
 
 const Vaquinha = new mongoose.Schema({
     name: {
@@ -37,5 +45,5 @@ const Vaquinha = new mongoose.Schema({
         timestamps: true,
     });
 
-mongoose.model('usuario', Usuario);
+mongoose.model('usuario', UserSchema);
 mongoose.model('vaquinha', Vaquinha);
