@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-
+type userSchema ={
+    name:{ type: String},
+    email:{ type: String},
+    password: { type: String},
+}
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -22,10 +26,6 @@ const UserSchema = new mongoose.Schema({
  {
     timestamps: true,
 });
-
-UserSchema.pre('save', async (next)=> {
-    const user = this;
-})
 
 const Vaquinha = new mongoose.Schema({
     name: {
