@@ -30,6 +30,24 @@ export default function fundraisingControl(app) {
          })
       }
    });
+   app.put("/fundraising/:id", async (req:Request, res:Response) => {   
+      try{
+          const {id} = req.params
+          await Fundraising.updateOne({_id: id}, req.body)
+          return res.json({
+              error:false,
+              message:"Editado com sucesso",
+            
+           });
+      }catch (err) {
+          return res.status(400).json({
+              error:true,
+              message:"Erro: User não editado com sucesso" 
+           })
+         
+      }
+
+   });
    app.delete("/fundraising/:id", async (req:Request, res:Response) => {
       try {
          const id = req.params.id;
