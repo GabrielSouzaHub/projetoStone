@@ -2,9 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 
-import userControl from "./controllers/User-controller";
+// import userControl from "./controllers/User-controller";
 import fundraisingControl from "./controllers/Fundraising-controller";
-
+import {routes} from "./routes"
 const port = 8080;
 const app = express();
 app.use(cors());
@@ -20,7 +20,7 @@ mongoose.connect('mongodb://localhost/vaquinha', {
    console.log(`${e}: Erro na conexão`);
 })
 
-userControl(app);
+app.use(routes)
 fundraisingControl(app);
 
 app.listen(port, () => {
