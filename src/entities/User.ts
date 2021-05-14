@@ -9,7 +9,6 @@ import { v4 as uuid } from 'uuid';
 
 @Entity("users")
 class User {
-
     @PrimaryColumn()
     id: string;
 
@@ -52,6 +51,9 @@ class User {
     @Column()
     uf: string;
 
+    @Column()
+    enabled:boolean;
+    
     constructor(){
         if(!this.id) this.id = uuid();
     }

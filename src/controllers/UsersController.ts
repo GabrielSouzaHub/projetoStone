@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
-import {UsersService } from "../services/UsersService";
+// import {UsersService } from "../services/UsersService";
 class UsersController {
     async create(req: Request, res: Response) {
+        try {
+        const usersRepository = getCustomRepository(UsersRepository);
         const {
             username,
             email,
@@ -17,12 +19,23 @@ class UsersController {
             state,
             city,
             uf,
-            
         } = req.body;
-        const usersService = new UsersService();
-        try {
-            const user = await usersService.create({ username,email,password,profile_image,coins,birth,phone_number,cep,street,state,city, uf})
-            return res.json(user);
+        const user = usersRepository.create({
+            username,
+            email,
+            password,
+            profile_image,
+            coins,
+            birth,
+            phone_number,
+            cep,
+            street,
+            state,
+            city,
+            uf,                   
+        });
+         await usersRepository.save(user);
+        return res.json(user);
         } catch (error) {
             return res.status(400).json({
                 erro: true,

@@ -31,7 +31,7 @@ export class CreateUsers1620820545778 implements MigrationInterface {
                     {
                         name: "coins",
                         type: "int",
-                        
+                        default:1000
                     },
                     {
                         name: "birth",
@@ -45,6 +45,11 @@ export class CreateUsers1620820545778 implements MigrationInterface {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()",
+                    },
+                    {
+                        name: "enabled",
+                        type: "boolean",
+                        default: "true",
                     },
                     {
                         name: "cep",
@@ -66,13 +71,8 @@ export class CreateUsers1620820545778 implements MigrationInterface {
                         name: "uf",
                         type: "char(2)",
                     },
-                    {
-                        name: "enabled",
-                        type: "boolean",
-                        default:true
-                    }
+                  
                 ],
-            
             })
         )
     }
