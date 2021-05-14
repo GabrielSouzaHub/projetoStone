@@ -17,11 +17,6 @@ export class CreateFundraising1620922541573 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
-                        name: "created_at",
-                        type: "timestamp",
-                        default: "now()",
-                    },
-                    {
                         name: "description",
                         type: "varchar"
                     },
@@ -49,11 +44,16 @@ export class CreateFundraising1620922541573 implements MigrationInterface {
                         name:"user_id",
                         type:"string"
                     },
+                    {
+                        name: "created_at",
+                        type: "timestamp",
+                        default: "now()",
+                    },
                 ],
                 foreignKeys:[
                     {
                         name:"FKUser",
-                        referencedTableName:"user", 
+                        referencedTableName:"users", 
                         referencedColumnNames: ["id"],
                         columnNames:["user_id"],
                         onDelete: "SET NULL",

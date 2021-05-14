@@ -4,7 +4,6 @@ import {
    PrimaryColumn,
    CreateDateColumn,
    ManyToOne,
-   OneToMany,
    JoinColumn
 
 } from 'typeorm';
@@ -23,12 +22,13 @@ class Transactions {
    @Column()
    user_id:string;
 
+   @JoinColumn({name: "fundraising_id"})
+   @ManyToOne(() => Fundraising)
+   fundraising:Fundraising;
+
    @Column()
    fundraising_id:string;
 
-   // @JoinColumn({name: "fundraising_id"})
-   // @OneToMany(() => Fundraising)
-   // fundraising:Fundraising; Ver isso 
 
    @Column()
    value_donated: number;

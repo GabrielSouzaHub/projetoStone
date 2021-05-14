@@ -19,6 +19,7 @@ class UsersController {
             state,
             city,
             uf,
+            enabled
         } = req.body;
         const user = usersRepository.create({
             username,
@@ -32,7 +33,8 @@ class UsersController {
             street,
             state,
             city,
-            uf,                   
+            uf,
+            enabled                   
         });
          await usersRepository.save(user);
         return res.json(user);
@@ -73,8 +75,11 @@ class UsersController {
             const usersRepository = getCustomRepository(UsersRepository);
             const {id} = req.params
             await usersRepository.findOne({id:id})
-        }catch{
-
+        }catch(error){
+            return res.status(400).json({
+                erro: true,
+                mensagem:error
+            })
         }
     }
 }
