@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 import { TransactionsRepository } from "../repositories/TransactionsRepository";
 
-class TransactionController{
+class TransactionsController{
     async create(req: Request, res: Response){
        const {
           user_id,
@@ -34,4 +34,4 @@ class TransactionController{
  }
  
  
- export { TransactionController };
+ export { TransactionsController };
