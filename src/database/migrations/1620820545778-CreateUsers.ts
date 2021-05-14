@@ -49,7 +49,7 @@ export class CreateUsers1620820545778 implements MigrationInterface {
                     {
                         name: "enabled",
                         type: "boolean",
-                        default: "true",
+                        default: true,
                     },
                     {
                         name: "cep",

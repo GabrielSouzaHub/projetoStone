@@ -2,10 +2,13 @@ import {
    Entity, 
    Column, 
    CreateDateColumn, 
-   PrimaryColumn
+   PrimaryColumn,
+   ManyToOne,
+   JoinColumn
 } from 'typeorm';
 
 import { v4 as uuid } from 'uuid';
+import { User } from './User';
 @Entity("fundraising")
 class Fundraising {
    @PrimaryColumn()
@@ -34,6 +37,13 @@ class Fundraising {
     
    @Column()
    validity:Date;
+
+   @JoinColumn({name: "user_id"})
+   @ManyToOne(()=>User)
+   user:User;
+
+   @Column()
+   user_id:string;
 
    constructor(){
       if(!this.id) this.id = uuid();

@@ -3,7 +3,7 @@ import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
 // import {UsersService } from "../services/UsersService";
 class UsersController {
-    async create(req: Request, res: Response) {
+    async create(req: Request, res: Response): Promise<Response> {
         try {
         const usersRepository = getCustomRepository(UsersRepository);
         const {
@@ -43,7 +43,7 @@ class UsersController {
             })   
         }
     }
-    async get (req: Request, res: Response){
+    async get (req: Request, res: Response): Promise<Response>{
         try{
             const usersRepository = getCustomRepository(UsersRepository);
             const users = await usersRepository.find({})
@@ -55,7 +55,7 @@ class UsersController {
             })
         }
     }
-    async getOnlyOne (req: Request, res: Response){
+    async getOnlyOne (req: Request, res: Response): Promise<Response>{
         try{
             const usersRepository = getCustomRepository(UsersRepository);
             const {id} = req.params

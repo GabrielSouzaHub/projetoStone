@@ -55,9 +55,11 @@ export class CreateFundraising1620922541573 implements MigrationInterface {
                         name:"FKUser",
                         referencedTableName:"user", 
                         referencedColumnNames: ["id"],
-                        columnNames:["user_id"]
-                    }
-                ]
+                        columnNames:["user_id"],
+                        onDelete: "SET NULL",
+                        onUpdate: "SET NULL",
+                    },
+                ],
             })
         );
     }

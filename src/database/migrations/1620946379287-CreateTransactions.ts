@@ -9,18 +9,26 @@ export class CreateTransactions1620946379287 implements MigrationInterface {
                 name:"transactions",
                 columns: [
                     {
+                        name: "id",
+                        type: "uuid",
+                        isPrimary: true
+                    },
+                    {
                         name:"user_id",
-                        type:"uuid",
-                        isPrimary:true
+                        type:"uuid",                      
                     },
                     {
                         name:"fundraising_id", 
-                        type:"uuid",
-                        isPrimary:true
+                        type:"uuid",                      
                     },
                     {
                         name:"value_donated",
                         type:"number"
+                    },
+                    {
+                        name: "created_at",
+                        type:"timestamp",
+                        default:"now()",
                     },
                 ],
                 foreignKeys:[
@@ -29,8 +37,14 @@ export class CreateTransactions1620946379287 implements MigrationInterface {
                         referencedTableName:"users", 
                         referencedColumnNames: ["id"],
                         columnNames:["user_id"]
-                    }
-                ]
+                    },
+                    {
+                        name:"FKFundraising",
+                        referencedTableName:"fundraising", 
+                        referencedColumnNames: ["id"],
+                        columnNames:["fundraising_id"]
+                    },
+                ],
             })
         );
     }
