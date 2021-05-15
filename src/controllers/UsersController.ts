@@ -12,10 +12,13 @@ class UsersController {
             uf, enabled
         } = req.body;
         const userAlreadyExists = await usersRepository.findOne({
-            username,email
+            username
         })
-            if(userAlreadyExists || email) {
-                return res.status(400).json({mensagem:"Nome de Usuário já existe"})
+        const emailAlreadyExists = await usersRepository.findOne({
+            email
+        })
+            if(userAlreadyExists || emailAlreadyExists) {
+                return res.status(400).json({mensagem:"Nome de Usuário/Email já existe"})
             }
         const user = usersRepository.create({
             username, email, password, profile_image, coins,
