@@ -4,7 +4,7 @@
   "description": "Back end para um site de vaquinha",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/server.ts",
+    "start": "node dist/server.ts",
     "dev": "ts-node-dev src/server.ts",
     "build": "tsc",
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
@@ -27,15 +27,14 @@
     "express": "^4.17.1",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^5.0.2",
-    "ts-node": "^9.1.1",
     "typeorm": "^0.2.32",
-    "typescript": "^4.2.4",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
     "@types/uuid": "^8.3.0",
-    "ts-node-dev": "^1.1.6"
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
   }
 }
