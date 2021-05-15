@@ -3,7 +3,7 @@ import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
 // import {UsersService } from "../services/UsersService";
 class UsersController {
-    async create(req: Request, res: Response): Promise<Response> {
+    async createUser(req: Request, res: Response): Promise<Response> {
         try {
         const usersRepository = getCustomRepository(UsersRepository);
         const {
@@ -34,7 +34,7 @@ class UsersController {
             })   
         }
     }
-    async get (req: Request, res: Response): Promise<Response>{
+    async getUsers (req: Request, res: Response): Promise<Response>{
         try{
             const usersRepository = getCustomRepository(UsersRepository);
             const users = await usersRepository.find({})
@@ -46,11 +46,26 @@ class UsersController {
             })
         }
     }
-    async getOnlyOne (req: Request, res: Response): Promise<Response>{
+    async getOnlyOneUser (req: Request, res: Response): Promise<Response>{
         try{
             const usersRepository = getCustomRepository(UsersRepository);
-            const {id} = req.params
-            const user = await usersRepository.findOne({id:id})
+            const {id} = req.params;
+            const user = await usersRepository.findOne({id:id});
+            return res.json(user);
+        }catch{
+            return res.status(400).json({
+                error: true,
+                mensagem: "Usuário não encontrado!"
+            })
+        }
+    }
+    async updateUser (req: Request, res: Response): Promise<Response>{
+        try{
+            const usersRepository = getCustomRepository(UsersRepository);
+            const {id} = req.params;
+            const user = await usersRepository.findOne({id:id});
+            usersRepository.merge(user, req.body);
+            await usersRepository.save(user);
             return res.json(user)
         }catch{
             return res.status(400).json({
@@ -59,7 +74,7 @@ class UsersController {
             })
         }
     }
-    async deleted (req: Request, res: Response){
+    async deleteUser (req: Request, res: Response){
         try{
             const usersRepository = getCustomRepository(UsersRepository);
             const {id} = req.params

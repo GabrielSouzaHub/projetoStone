@@ -8,14 +8,15 @@ const usersController = new UsersController();
 const fundraisingController = new FundraisingController();
 const transactionController = new TransactionsController();
 
-routes.get("/users/:id", usersController.getOnlyOne)
-routes.get("/users", usersController.get)
-routes.post("/users", usersController.create);
-routes.delete("/users/:id", usersController.deleted)
+routes.get("/users/:id", usersController.getOnlyOneUser);
+routes.get("/users", usersController.getUsers);
+routes.post("/users", usersController.createUser);
+routes.put("/users", usersController.updateUser);
+routes.delete("/users/:id", usersController.deleteUser);
 
-routes.get("/fundraising", fundraisingController.get)
+routes.get("/fundraising", fundraisingController.get);
 routes.post("/fundraising", fundraisingController.create);
 
 routes.get("/transaction", transactionController.get);
-routes.post("/t", transactionController.create)
+routes.post("/t", transactionController.create);
 export {routes};
