@@ -39,7 +39,7 @@ export class CreateUsers1620820545778 implements MigrationInterface {
                     },
                     {
                         name: "phone_number",
-                        type: "varchar",
+                        type: "varchar"
                     },
                     {
                         name: "created_at",
