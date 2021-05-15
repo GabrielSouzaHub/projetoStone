@@ -5,7 +5,6 @@ import {
    CreateDateColumn,
    ManyToOne,
    JoinColumn
-
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { Fundraising } from './Fundraising';

@@ -18,7 +18,7 @@ class UsersController {
             email
         })
             if(userAlreadyExists || emailAlreadyExists) {
-                return res.status(400).json({mensagem:"Nome de Usuário/Email já existe"})
+                return res.status(400).json({mensagem:"Nome de Usuário ou Email já existe"})
             }
         const user = usersRepository.create({
             username, email, password, profile_image, coins,

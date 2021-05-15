@@ -11,7 +11,7 @@ const transactionController = new TransactionsController();
 routes.get("/users/:id", usersController.getOnlyOneUser);
 routes.get("/users", usersController.getUsers);
 routes.post("/users", usersController.createUser);
-routes.put("/users", usersController.updateUser);
+routes.put("/users/:id", usersController.updateUser);
 routes.delete("/users/:id", usersController.deleteUser);
 
 routes.get("/fundraising", fundraisingController.get);
