@@ -18,5 +18,5 @@ routes.get("/fundraising", fundraisingController.get);
 routes.post("/fundraising", fundraisingController.create);
 
 routes.get("/transaction", transactionController.get);
-routes.post("/t", transactionController.create);
+routes.post("/transaction", transactionController.create);
 export {routes};
