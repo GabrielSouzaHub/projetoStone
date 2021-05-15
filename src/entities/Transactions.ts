@@ -29,7 +29,6 @@ class Transactions {
    @Column()
    fundraising_id:string;
 
-
    @Column()
    value_donated: number;
 

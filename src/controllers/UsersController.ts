@@ -7,41 +7,27 @@ class UsersController {
         try {
         const usersRepository = getCustomRepository(UsersRepository);
         const {
-            username,
-            email,
-            password,
-            profile_image,
-            coins,
-            birth,
-            phone_number,
-            cep,
-            street,
-            state,
-            city,
-            uf,
-            enabled
+            username, email, password, profile_image, coins,
+            birth, phone_number, cep, street, state, city,
+            uf, enabled
         } = req.body;
+        const userAlreadyExists = await usersRepository.findOne({
+            username,email
+        })
+            if(userAlreadyExists || email) {
+                return res.status(400).json({mensagem:"Nome de Usuário já existe"})
+            }
         const user = usersRepository.create({
-            username,
-            email,
-            password,
-            profile_image,
-            coins,
-            birth,
-            phone_number,
-            cep,
-            street,
-            state,
-            city,
-            uf,
-            enabled                   
+            username, email, password, profile_image, coins,
+            birth, phone_number, cep, street, state, city,
+            uf, enabled                   
         });
          await usersRepository.save(user);
         return res.json(user);
-        } catch (error) {
+        } catch {
             return res.status(400).json({
                 erro: true,
-                mensagem:error
+                mensagem:"Usuário não cadastrado"
             })   
         }
     }
@@ -74,7 +60,12 @@ class UsersController {
         try{
             const usersRepository = getCustomRepository(UsersRepository);
             const {id} = req.params
-            await usersRepository.findOne({id:id})
+            const user = await usersRepository.findOne({id:id})
+            await usersRepository.delete(user)
+            return res.json({
+                mensagem:"Deletado com sucesso",
+                user:user
+            })
         }catch(error){
             return res.status(400).json({
                 erro: true,
