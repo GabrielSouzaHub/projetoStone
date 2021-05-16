@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FundraisingController = void 0;
 var typeorm_1 = require("typeorm");
-var FunderaisingRepository_1 = require("../repositories/FunderaisingRepository");
+var FundraisingRepository_1 = require("../repositories/FundraisingRepository");
 var FundraisingController = /** @class */ (function () {
     function FundraisingController() {
     }
@@ -49,7 +49,7 @@ var FundraisingController = /** @class */ (function () {
                 switch (_b.label) {
                     case 0:
                         _b.trys.push([0, 2, , 3]);
-                        fundraisingRepository = typeorm_1.getCustomRepository(FunderaisingRepository_1.FundraisingRepository);
+                        fundraisingRepository = typeorm_1.getCustomRepository(FundraisingRepository_1.FundraisingRepository);
                         _a = req.body, fundraising_name = _a.fundraising_name, description = _a.description, image = _a.image, video = _a.video, value_donated = _a.value_donated, goal_meta = _a.goal_meta, validity = _a.validity, user_id = _a.user_id;
                         fundraising = fundraisingRepository.create({
                             fundraising_name: fundraising_name,
@@ -83,7 +83,7 @@ var FundraisingController = /** @class */ (function () {
                 switch (_b.label) {
                     case 0:
                         _b.trys.push([0, 2, , 3]);
-                        fundraisingRepository = typeorm_1.getCustomRepository(FunderaisingRepository_1.FundraisingRepository);
+                        fundraisingRepository = typeorm_1.getCustomRepository(FundraisingRepository_1.FundraisingRepository);
                         return [4 /*yield*/, fundraisingRepository.find({})];
                     case 1:
                         fundraising = _b.sent();

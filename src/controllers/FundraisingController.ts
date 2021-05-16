@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
-import { FundraisingRepository } from "../repositories/FunderaisingRepository";
+import { FundraisingRepository } from "../repositories/FundraisingRepository";
 
 class FundraisingController{
    async create(req: Request, res: Response){

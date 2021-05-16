@@ -39,16 +39,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionsController = void 0;
 var typeorm_1 = require("typeorm");
 var TransactionsRepository_1 = require("../repositories/TransactionsRepository");
+var UsersRepository_1 = require("../repositories/UsersRepository");
+var FundraisingRepository_1 = require("../repositories/FundraisingRepository");
 var TransactionsController = /** @class */ (function () {
     function TransactionsController() {
     }
     TransactionsController.prototype.create = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, user_id, fundraising_id, value_donated, transactionRepository, transaction, _b;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
+            var _a, user_id, fundraising_id, value_donated, transactionRepository, transaction, error_1;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
-                        _c.trys.push([0, 2, , 3]);
+                        _b.trys.push([0, 4, , 5]);
                         _a = req.body, user_id = _a.user_id, fundraising_id = _a.fundraising_id, value_donated = _a.value_donated;
                         transactionRepository = typeorm_1.getCustomRepository(TransactionsRepository_1.TransactionsRepository);
                         transaction = transactionRepository.create({
@@ -56,17 +58,23 @@ var TransactionsController = /** @class */ (function () {
                             fundraising_id: fundraising_id,
                             value_donated: value_donated
                         });
-                        return [4 /*yield*/, transactionRepository.save(transaction)];
+                        return [4 /*yield*/, findUser(transaction.user_id, transaction.value_donated)];
                     case 1:
-                        _c.sent();
-                        return [2 /*return*/, res.json(transaction)];
+                        _b.sent();
+                        return [4 /*yield*/, findFundraising(transaction.fundraising_id, transaction.value_donated)];
                     case 2:
-                        _b = _c.sent();
+                        _b.sent();
+                        return [4 /*yield*/, transactionRepository.save(transaction)];
+                    case 3:
+                        _b.sent();
+                        return [2 /*return*/, res.json(transaction)];
+                    case 4:
+                        error_1 = _b.sent();
                         return [2 /*return*/, res.status(400).json({
                                 error: true,
-                                mensagem: "Transação não realizada"
+                                mensagem: error_1
                             })];
-                    case 3: return [2 /*return*/];
+                    case 5: return [2 /*return*/];
                 }
             });
         });
@@ -97,3 +105,59 @@ var TransactionsController = /** @class */ (function () {
     return TransactionsController;
 }());
 exports.TransactionsController = TransactionsController;
+function findUser(id, coins) {
+    return __awaiter(this, void 0, void 0, function () {
+        var usersRepository, user, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    usersRepository = typeorm_1.getCustomRepository(UsersRepository_1.UsersRepository);
+                    return [4 /*yield*/, usersRepository.findOne({ id: id })];
+                case 1:
+                    user = _a.sent();
+                    coins = (user.coins - coins);
+                    usersRepository.merge(user, { "coins": coins });
+                    return [4 /*yield*/, usersRepository.save(user)];
+                case 2:
+                    _a.sent();
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_2 = _a.sent();
+                    return [2 /*return*/, {
+                            erro: true,
+                            mensagem: error_2
+                        }];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function findFundraising(id, coins) {
+    return __awaiter(this, void 0, void 0, function () {
+        var fundraisingRepository, fundraising, error_3;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    fundraisingRepository = typeorm_1.getCustomRepository(FundraisingRepository_1.FundraisingRepository);
+                    return [4 /*yield*/, fundraisingRepository.findOne({ id: id })];
+                case 1:
+                    fundraising = _a.sent();
+                    coins = (fundraising.value_donated + coins);
+                    fundraisingRepository.merge(fundraising, { "value_donated": coins });
+                    return [4 /*yield*/, fundraisingRepository.save(fundraising)];
+                case 2:
+                    _a.sent();
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_3 = _a.sent();
+                    return [2 /*return*/, {
+                            erro: true,
+                            mensagem: error_3
+                        }];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}

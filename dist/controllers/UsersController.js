@@ -39,11 +39,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersController = void 0;
 var typeorm_1 = require("typeorm");
 var UsersRepository_1 = require("../repositories/UsersRepository");
-// import {UsersService } from "../services/UsersService";
 var UsersController = /** @class */ (function () {
     function UsersController() {
     }
-    UsersController.prototype.create = function (req, res) {
+    UsersController.prototype.createUser = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var usersRepository, _a, username, email, password, profile_image, coins, birth, phone_number, cep, street, state, city, uf, enabled, userAlreadyExists, emailAlreadyExists, user, _b;
             return __generator(this, function (_c) {
@@ -63,7 +62,7 @@ var UsersController = /** @class */ (function () {
                     case 2:
                         emailAlreadyExists = _c.sent();
                         if (userAlreadyExists || emailAlreadyExists) {
-                            return [2 /*return*/, res.status(400).json({ mensagem: "Nome de Usuário/Email já existe" })];
+                            return [2 /*return*/, res.status(400).json({ mensagem: "Nome de Usuário ou Email já existe" })];
                         }
                         user = usersRepository.create({
                             username: username, email: email, password: password, profile_image: profile_image, coins: coins,
@@ -85,7 +84,7 @@ var UsersController = /** @class */ (function () {
             });
         });
     };
-    UsersController.prototype.get = function (req, res) {
+    UsersController.prototype.getUsers = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var usersRepository, users, _a;
             return __generator(this, function (_b) {
@@ -108,7 +107,7 @@ var UsersController = /** @class */ (function () {
             });
         });
     };
-    UsersController.prototype.getOnlyOne = function (req, res) {
+    UsersController.prototype.getOnlyOneUser = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var usersRepository, id, user, _a;
             return __generator(this, function (_b) {
@@ -132,7 +131,35 @@ var UsersController = /** @class */ (function () {
             });
         });
     };
-    UsersController.prototype.deleted = function (req, res) {
+    UsersController.prototype.updateUser = function (req, res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var usersRepository, id, user, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _b.trys.push([0, 3, , 4]);
+                        usersRepository = typeorm_1.getCustomRepository(UsersRepository_1.UsersRepository);
+                        id = req.params.id;
+                        return [4 /*yield*/, usersRepository.findOne({ id: id })];
+                    case 1:
+                        user = _b.sent();
+                        usersRepository.merge(user, req.body);
+                        return [4 /*yield*/, usersRepository.save(user)];
+                    case 2:
+                        _b.sent();
+                        return [2 /*return*/, res.json(user)];
+                    case 3:
+                        _a = _b.sent();
+                        return [2 /*return*/, res.status(400).json({
+                                error: true,
+                                mensagem: "Usuário não encontrado!"
+                            })];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    UsersController.prototype.deleteUser = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var usersRepository, id, user, error_1;
             return __generator(this, function (_a) {
