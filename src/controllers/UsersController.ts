@@ -10,8 +10,8 @@ class UsersController {
         try {
         const usersRepository = getCustomRepository(UsersRepository);
         const{
-            username, email, password, profile_image, coins,
-            birth, phone_number, cep, street, state, city,
+            username, email, password, profile_image,
+            birth, phone_number, street, state, city,
             uf, enabled
         } = req.body;
      
@@ -25,15 +25,15 @@ class UsersController {
                 return res.status(400).json({mensagem:"Nome de Usuário ou Email já existe"})
             }
         const user = usersRepository.create({
-            username, email, password, profile_image, coins,
-            birth, phone_number, cep, street, state, city,
+            username, email, password, profile_image,
+            birth, phone_number, street, state, city,
             uf, enabled                   
         });
          await usersRepository.save(user);
         return res.status(201).json({Mensagem:"Usuário cadastrado com sucesso"});
-        } catch {
+        } catch(error){
             return res.status(400).json({
-                erro: true,
+                erro: error,
                 mensagem:"Usuário não cadastrado"
             })   
         }

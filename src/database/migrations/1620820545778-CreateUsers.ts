@@ -33,7 +33,7 @@ public async up(queryRunner: QueryRunner): Promise<void> {
                     {
                         name: "coins",
                         type: "int",
-                        default:1000
+                        default:1000,
                     },
                     {
                         name: "birth",
@@ -41,7 +41,7 @@ public async up(queryRunner: QueryRunner): Promise<void> {
                     },
                     {
                         name: "phone_number",
-                        type: "varchar"
+                        type: "varchar",
                     },
                     {
                         name: "created_at",
@@ -56,22 +56,27 @@ public async up(queryRunner: QueryRunner): Promise<void> {
                     {
                         name: "cep",
                         type: "char(9)",
+                        isNullable:true,
                     },
                     {
                         name: "street",
                         type: "varchar",
+                        isNullable:true,
                     },
                     {
                         name: "state",
                         type: "varchar",
+                        isNullable:true,
                     },
                     {
                         name: "city",
                         type: "varchar",
+                        isNullable:true,
                     },
                     {
                         name: "uf",
                         type: "char(2)",
+                        isNullable:true,
                     },
                   
                 ],

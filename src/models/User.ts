@@ -29,14 +29,14 @@ class User {
     @Column()
     profile_image: string;
 
-    @Column()
+    @Column({default:1000})
     coins: number;
 
     @Column()
     birth: Date;
 
     @Column()
-    phone_number: number;
+    phone_number: string;
 
     @CreateDateColumn()
     created_at: Date;
