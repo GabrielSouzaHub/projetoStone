@@ -1,5 +1,5 @@
 import { Repository, EntityRepository } from "typeorm";
-import { Transactions } from "../entities/Transactions";
+import { Transactions } from "../models/Transactions";
 
 
 @EntityRepository(Transactions)

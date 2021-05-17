@@ -3,14 +3,18 @@ import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
 
 class UsersController {
+    index(req: Request, res: Response){
+        return res.send({userID:req.userId})
+    }
     async createUser(req: Request, res: Response): Promise<Response> {
         try {
         const usersRepository = getCustomRepository(UsersRepository);
-        const {
+        const{
             username, email, password, profile_image, coins,
             birth, phone_number, cep, street, state, city,
             uf, enabled
         } = req.body;
+     
         const userAlreadyExists = await usersRepository.findOne({
             username
         })
@@ -26,7 +30,7 @@ class UsersController {
             uf, enabled                   
         });
          await usersRepository.save(user);
-        return res.json(user);
+        return res.status(201).json({Mensagem:"Usuário cadastrado com sucesso"});
         } catch {
             return res.status(400).json({
                 erro: true,
@@ -37,6 +41,7 @@ class UsersController {
     async getUsers (req: Request, res: Response): Promise<Response>{
         try{
             const usersRepository = getCustomRepository(UsersRepository);
+        
             const users = await usersRepository.find({})
             return res.json(users) 
         }catch{
@@ -93,4 +98,4 @@ class UsersController {
     }
 }
 
-export { UsersController };
+export default new UsersController ();

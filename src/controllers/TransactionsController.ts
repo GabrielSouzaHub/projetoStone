@@ -75,4 +75,4 @@ async function findFundraising(id, coins){
 }
  
  
- export { TransactionsController };
+ export default new TransactionsController();

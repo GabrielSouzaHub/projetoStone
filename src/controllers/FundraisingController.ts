@@ -48,7 +48,22 @@ class FundraisingController{
           })
       }
   }
+  async updateUser (req: Request, res: Response): Promise<Response>{
+   try{
+       const fundraisingRepository = getCustomRepository(FundraisingRepository);
+       const {id} = req.params;
+       const user = await fundraisingRepository.findOne({id:id});
+       fundraisingRepository.merge(user, req.body);
+       await fundraisingRepository.save(user);
+       return res.json(user)
+   }catch{
+       return res.status(400).json({
+           error: true,
+           mensagem: "Usuário não encontrado!"
+       })
+   }
+}
 }
 
 
-export { FundraisingController };
+export default new FundraisingController();
