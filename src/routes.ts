@@ -14,8 +14,10 @@ routes.post("/users", UsersController.createUser);
 routes.put("/users/:id", UsersController.updateUser);
 routes.delete("/users/:id", UsersController.deleteUser);
 
-routes.get("/fundraising", FundraisingController.get);
-routes.post("/fundraising", FundraisingController.create);
+routes.post("/fundraising", FundraisingController.createFundraising);
+routes.get("/fundraising", FundraisingController.getFundraisings);
+routes.get("/fundraising/:id", FundraisingController.getOnlyOneFundraising);
+routes.put("/fundraising/:id", FundraisingController.updateFundraising);
 
 routes.get("/transaction", TransactionsController.get);
 routes.post("/transaction", TransactionsController.create);

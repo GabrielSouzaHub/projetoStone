@@ -56,7 +56,7 @@ class User {
     @Column()
     uf: string;
 
-    @Column()
+    @Column({default:true})
     enabled:boolean;
     
     @BeforeInsert()
