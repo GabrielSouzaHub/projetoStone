@@ -1,19 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,16 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionsRepository = void 0;
-var typeorm_1 = require("typeorm");
-var Transactions_1 = require("../entities/Transactions");
-var TransactionsRepository = /** @class */ (function (_super) {
-    __extends(TransactionsRepository, _super);
-    function TransactionsRepository() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    TransactionsRepository = __decorate([
-        typeorm_1.EntityRepository(Transactions_1.Transactions)
-    ], TransactionsRepository);
-    return TransactionsRepository;
-}(typeorm_1.Repository));
+const typeorm_1 = require("typeorm");
+const Transactions_1 = require("../models/Transactions");
+let TransactionsRepository = class TransactionsRepository extends typeorm_1.Repository {
+};
+TransactionsRepository = __decorate([
+    typeorm_1.EntityRepository(Transactions_1.Transactions)
+], TransactionsRepository);
 exports.TransactionsRepository = TransactionsRepository;

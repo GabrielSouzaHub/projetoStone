@@ -1,19 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,16 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FundraisingRepository = void 0;
-var typeorm_1 = require("typeorm");
-var Fundraising_1 = require("../entities/Fundraising");
-var FundraisingRepository = /** @class */ (function (_super) {
-    __extends(FundraisingRepository, _super);
-    function FundraisingRepository() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    FundraisingRepository = __decorate([
-        typeorm_1.EntityRepository(Fundraising_1.Fundraising)
-    ], FundraisingRepository);
-    return FundraisingRepository;
-}(typeorm_1.Repository));
+const typeorm_1 = require("typeorm");
+const Fundraising_1 = require("../models/Fundraising");
+let FundraisingRepository = class FundraisingRepository extends typeorm_1.Repository {
+};
+FundraisingRepository = __decorate([
+    typeorm_1.EntityRepository(Fundraising_1.Fundraising)
+], FundraisingRepository);
 exports.FundraisingRepository = FundraisingRepository;

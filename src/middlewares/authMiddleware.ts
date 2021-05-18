@@ -11,12 +11,9 @@ export default function authMiddleware (req:Request, res:Response, next:NextFunc
       if(!authorization){
             return res.status(401).json({Mensagem:"Usuário não autorizado"})
       }
-
       const token = authorization.replace("Bearer",'').trim();
-
       try {
             const data = jwt.verify(token, 'aquiesta')
-
             const {id} =data as Idata;
             req.userId = id;
 
