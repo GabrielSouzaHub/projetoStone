@@ -1,23 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const typeorm_1 = require("typeorm");
-const FundraisingRepository_1 = require("../repositories/FundraisingRepository");
+const FundraisingService_1 = require("../services/FundraisingService");
 class FundraisingController {
-    async create(req, res) {
+    async createFundraising(req, res) {
         try {
-            const fundraisingRepository = typeorm_1.getCustomRepository(FundraisingRepository_1.FundraisingRepository);
             const { fundraising_name, description, image, video, value_donated, goal_meta, validity, user_id } = req.body;
-            const fundraising = fundraisingRepository.create({
-                fundraising_name,
-                description,
-                image,
-                video,
-                value_donated,
-                goal_meta,
-                validity,
-                user_id
-            });
-            await fundraisingRepository.save(fundraising);
+            const fundraisingService = new FundraisingService_1.FundraisingService();
+            const fundraising = await fundraisingService.createFundraising({ fundraising_name, description, image, video, value_donated, goal_meta, validity, user_id });
             return res.json(fundraising);
         }
         catch (error) {
@@ -27,10 +16,24 @@ class FundraisingController {
             });
         }
     }
-    async get(req, res) {
+    async getFundraisings(req, res) {
         try {
-            const fundraisingRepository = typeorm_1.getCustomRepository(FundraisingRepository_1.FundraisingRepository);
-            const fundraising = await fundraisingRepository.find({});
+            const fundraisingService = new FundraisingService_1.FundraisingService();
+            const fundraisings = await fundraisingService.getFundraisings();
+            return res.json(fundraisings);
+        }
+        catch (_a) {
+            return res.status(400).json({
+                error: true,
+                mensagem: "Nenhuma vaquinha encontrada!"
+            });
+        }
+    }
+    async getOnlyOneFundraising(req, res) {
+        try {
+            const { id } = req.params;
+            const fundraisingService = new FundraisingService_1.FundraisingService();
+            const fundraising = await fundraisingService.getOnlyOneFundraising({ id });
             return res.json(fundraising);
         }
         catch (_a) {
@@ -40,19 +43,17 @@ class FundraisingController {
             });
         }
     }
-    async updateUser(req, res) {
+    async updateFundraising(req, res) {
         try {
-            const fundraisingRepository = typeorm_1.getCustomRepository(FundraisingRepository_1.FundraisingRepository);
             const { id } = req.params;
-            const user = await fundraisingRepository.findOne({ id: id });
-            fundraisingRepository.merge(user, req.body);
-            await fundraisingRepository.save(user);
-            return res.json(user);
+            const fundraisingService = new FundraisingService_1.FundraisingService();
+            const fundraising = await fundraisingService.updateFundraising({ id }, req.body);
+            return res.json(fundraising);
         }
         catch (_a) {
             return res.status(400).json({
                 error: true,
-                mensagem: "Usuário não encontrado!"
+                mensagem: "Vaquinha não encontrada!"
             });
         }
     }

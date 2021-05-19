@@ -2,27 +2,25 @@ import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
 import { UsersService } from "../services/UsersService";
-
 class UsersController {
-  index(req: Request, res: Response) {
-    return res.send({ userID: req.userId })
-  }
-  async createUser(req: Request, res: Response): Promise<Response> {
+  async createUser(req: Request, res: Response): Promise<void> {
     try {
+    //   const {originalname: name,size, filename: key} = req.file
+    //   const profile_image = `${name}, ${size}, ${key}-${name}, url:''`
       const {
         username,
         email, 
-        password, 
+        password,   
         profile_image,
         birth, 
         phone_number
       } = req.body;
       const usersService = new UsersService();
       await usersService.createUser({ username, email, password, profile_image, birth, phone_number });
-      return res.status(201).json({ Mensagem: "Usuário cadastrado com sucesso" });
+      res.status(201).json({ Mensagem:"Usuário cadastrado com sucesso" });
     } catch (error) {
-      return res.status(400).json({
-        erro: error,
+       res.status(401).json({
+        erro: true,
         mensagem: "Usuário não cadastrado"
       })
     }

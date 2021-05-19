@@ -1,44 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const typeorm_1 = require("typeorm");
-const UsersRepository_1 = require("../repositories/UsersRepository");
+const UsersService_1 = require("../services/UsersService");
 class UsersController {
-    index(req, res) {
-        return res.send({ userID: req.userId });
-    }
     async createUser(req, res) {
         try {
-            const usersRepository = typeorm_1.getCustomRepository(UsersRepository_1.UsersRepository);
-            const { username, email, password, profile_image, birth, phone_number, street, state, city, uf, enabled } = req.body;
-            const userAlreadyExists = await usersRepository.findOne({
-                username
-            });
-            const emailAlreadyExists = await usersRepository.findOne({
-                email
-            });
-            if (userAlreadyExists || emailAlreadyExists) {
-                return res.status(400).json({ mensagem: "Nome de Usuário ou Email já existe" });
-            }
-            const user = usersRepository.create({
-                username, email, password, profile_image,
-                birth, phone_number, street, state, city,
-                uf, enabled
-            });
-            await usersRepository.save(user);
-            return res.status(201).json({ Mensagem: "Usuário cadastrado com sucesso" });
+            //   const {originalname: name,size, filename: key} = req.file
+            //   const profile_image = `${name}, ${size}, ${key}-${name}, url:''`
+            const { username, email, password, profile_image, birth, phone_number } = req.body;
+            const usersService = new UsersService_1.UsersService();
+            await usersService.createUser({ username, email, password, profile_image, birth, phone_number });
+            res.status(201).json({ Mensagem: "Usuário cadastrado com sucesso" });
         }
         catch (error) {
-            return res.status(400).json({
-                erro: error,
+            res.status(401).json({
+                erro: true,
                 mensagem: "Usuário não cadastrado"
             });
         }
     }
     async getUsers(req, res) {
         try {
-            const usersRepository = typeorm_1.getCustomRepository(UsersRepository_1.UsersRepository);
-            const users = await usersRepository.find({});
-            return res.json(users);
+            return res.json(await new UsersService_1.UsersService().getUsers());
         }
         catch (_a) {
             return res.status(400).json({
@@ -49,9 +31,9 @@ class UsersController {
     }
     async getOnlyOneUser(req, res) {
         try {
-            const usersRepository = typeorm_1.getCustomRepository(UsersRepository_1.UsersRepository);
             const { id } = req.params;
-            const user = await usersRepository.findOne({ id: id });
+            const usersService = new UsersService_1.UsersService();
+            const user = await usersService.getOnlyOneUser({ id });
             return res.json(user);
         }
         catch (_a) {
@@ -63,11 +45,9 @@ class UsersController {
     }
     async updateUser(req, res) {
         try {
-            const usersRepository = typeorm_1.getCustomRepository(UsersRepository_1.UsersRepository);
             const { id } = req.params;
-            const user = await usersRepository.findOne({ id: id });
-            usersRepository.merge(user, req.body);
-            await usersRepository.save(user);
+            const usersService = new UsersService_1.UsersService();
+            const user = await usersService.updateUser({ id }, req.body);
             return res.json(user);
         }
         catch (_a) {
@@ -79,13 +59,11 @@ class UsersController {
     }
     async deleteUser(req, res) {
         try {
-            const usersRepository = typeorm_1.getCustomRepository(UsersRepository_1.UsersRepository);
             const { id } = req.params;
-            const user = await usersRepository.findOne({ id: id });
-            await usersRepository.delete(user);
+            const usersService = new UsersService_1.UsersService();
+            usersService.deleteUser({ id });
             return res.json({
-                mensagem: "Deletado com sucesso",
-                user: user
+                mensagem: "Deletado com sucesso"
             });
         }
         catch (error) {

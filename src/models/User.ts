@@ -28,6 +28,9 @@ class User {
 
     @Column()
     profile_image: string;
+    // size:number;
+    // key:String;
+    // url:String
 
     @Column({default:1000})
     coins: number;
