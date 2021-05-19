@@ -4,7 +4,7 @@ import {routes} from "./routes";
 import cors from "cors";
 
 const port = 8080;
-const app = express();
+export const app = express();
 app.use(cors());
 
 app.use(express.json());

@@ -21,7 +21,10 @@ export class UsersService {
     this.usersRepository = getCustomRepository(UsersRepository);
   }
   async createUser({ username, email, password, profile_image, birth, phone_number }: IUsersCreate) {
-
+    const user = this.usersRepository.create({
+      username, email, password, profile_image,
+      birth, phone_number
+    });
     const userAlreadyExists = await this.usersRepository.findOne({
       username,
     });
@@ -31,10 +34,6 @@ export class UsersService {
     if (userAlreadyExists || emailAlreadyExists) {
       return ({ mensagem: "Nome de Usuário ou Email já existe" })
     }
-    const user = this.usersRepository.create({
-      username, email, password, profile_image,
-      birth, phone_number
-    });
     await this.usersRepository.save(user);
     return user;
   }
