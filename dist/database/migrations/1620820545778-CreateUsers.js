@@ -16,17 +16,12 @@ class CreateUsers1620820545778 {
                     name: "username",
                     type: "varchar",
                     isUnique: true,
-                    isNullable: true
+                    isNullable: true,
                 },
                 {
                     name: "email",
                     type: "varchar",
                     isUnique: true,
-                },
-                {
-                    name: "password",
-                    type: "varchar",
-                    isNullable: true
                 },
                 {
                     name: "profile_image",
@@ -35,52 +30,52 @@ class CreateUsers1620820545778 {
                 {
                     name: "coins",
                     type: "int",
-                    default: 1000
+                    default: 1000,
                 },
                 {
                     name: "birth",
                     type: "date",
-                    isNullable: true
+                    isNullable: true,
                 },
                 {
                     name: "phone_number",
                     type: "varchar",
-                    isNullable: true
+                    isNullable: true,
                 },
                 {
                     name: "created_at",
                     type: "timestamp",
-                    default: "now()"
+                    default: "now()",
                 },
                 {
                     name: "enabled",
                     type: "boolean",
-                    default: true
+                    default: true,
                 },
                 {
                     name: "cep",
                     type: "char(9)",
-                    isNullable: true
+                    isNullable: true,
                 },
                 {
                     name: "street",
                     type: "varchar",
-                    isNullable: true
+                    isNullable: true,
                 },
                 {
                     name: "state",
                     type: "varchar",
-                    isNullable: true
+                    isNullable: true,
                 },
                 {
                     name: "city",
                     type: "varchar",
-                    isNullable: true
+                    isNullable: true,
                 },
                 {
                     name: "uf",
                     type: "char(2)",
-                    isNullable: true
+                    isNullable: true,
                 },
             ],
         }));

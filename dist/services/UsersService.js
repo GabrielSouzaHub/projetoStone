@@ -7,18 +7,14 @@ class UsersService {
     constructor() {
         this.usersRepository = typeorm_1.getCustomRepository(UsersRepository_1.UsersRepository);
     }
-    async createUser({ username, email, password, profile_image, birth, phone_number }) {
+    async createUser({ email, profile_image }) {
         const user = this.usersRepository.create({
-            username, email, password, profile_image,
-            birth, phone_number
-        });
-        const userAlreadyExists = await this.usersRepository.findOne({
-            username,
+            email, profile_image
         });
         const emailAlreadyExists = await this.usersRepository.findOne({
             email,
         });
-        if (userAlreadyExists || emailAlreadyExists) {
+        if (emailAlreadyExists) {
             throw new Error(`mensagem: "Nome de Usuário ou Email já existe"`);
         }
         await this.usersRepository.save(user);
