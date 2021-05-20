@@ -8,15 +8,12 @@ const express_1 = require("express");
 const FundraisingController_1 = __importDefault(require("./controllers/FundraisingController"));
 const UsersController_1 = __importDefault(require("./controllers/UsersController"));
 const TransactionsController_1 = __importDefault(require("./controllers/TransactionsController"));
-// import AuthController  from "./controllers/AuthController";
-// import multer from 'multer';
-// import multerConfig from "./config/multer";
-// import authMiddleware from './middlewares/authMiddleware'
+const AuthController_1 = __importDefault(require("./controllers/AuthController"));
 const routes = express_1.Router();
 exports.routes = routes;
-// routes.post("/auth", AuthController.auth);
+routes.post("/auth", AuthController_1.default.auth);
 routes.get("/users/:id", UsersController_1.default.getOnlyOneUser);
-// routes.get("/users", authMiddleware, usersController.index);
+// routes.get("/users", authMiddleware, UsersController.getUsers);
 routes.get("/users", UsersController_1.default.getUsers);
 routes.post("/users", UsersController_1.default.createUser);
 routes.put("/users/:id", UsersController_1.default.updateUser);
