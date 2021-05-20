@@ -8,17 +8,14 @@ class UsersController {
     //   const {originalname: name,size, filename: key} = req.file
     //   const profile_image = `${name}, ${size}, ${key}-${name}, url:''`
       const {
-        username,
         email, 
-        password,   
-        profile_image,
-        birth, 
-        phone_number
+        profile_image
       } = req.body;
       const usersService = new UsersService();
-      await usersService.createUser({ username, email, password, profile_image, birth, phone_number });
+      await usersService.createUser({ email, profile_image });
       res.status(201).json({ Mensagem:"Usuário cadastrado com sucesso" });
     } catch (error) {
+      console.log(error);
        res.status(401).json({
         erro: true,
         mensagem: "Usuário não cadastrado"
