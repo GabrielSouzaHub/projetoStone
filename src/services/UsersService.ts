@@ -3,12 +3,8 @@ import { User } from "../models/User";
 import { UsersRepository } from "../repositories/UsersRepository";
 
 interface IUsersCreate {
-  username: string;
   email: string;
-  password: string;
   profile_image:string;
-  birth: Date;
-  phone_number: string;
 }
 
 interface IUsersGetOnlyOneUser {
@@ -20,19 +16,16 @@ export class UsersService {
   constructor() {
     this.usersRepository = getCustomRepository(UsersRepository);
   }
-  async createUser({ username, email, password, profile_image, birth, phone_number }: IUsersCreate) {
+  async createUser({ email, profile_image }: IUsersCreate) {
 
     const user = this.usersRepository.create({
-      username, email, password, profile_image,
-      birth, phone_number
+      email, profile_image
     });
-    const userAlreadyExists = await this.usersRepository.findOne({
-      username,
-    });
+    
     const emailAlreadyExists = await this.usersRepository.findOne({
       email,
     });
-    if (userAlreadyExists || emailAlreadyExists) {
+    if (emailAlreadyExists) {
       throw new Error(`mensagem: "Nome de Usuário ou Email já existe"` )
     
     }

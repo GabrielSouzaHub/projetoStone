@@ -4,11 +4,7 @@ import {
     Column, 
     CreateDateColumn, 
     PrimaryColumn,
-    BeforeInsert,
-    BeforeUpdate,
-   
 } from 'typeorm';
-import bcrypt from 'bcryptjs'
 
 import { v4 as uuid } from 'uuid';
 
@@ -24,13 +20,7 @@ class User {
     email: string;
 
     @Column()
-    password: string;
-
-    @Column()
     profile_image: string;
-    // size:number;
-    // key:String;
-    // url:String
 
     @Column({default:1000})
     coins: number;
@@ -62,11 +52,6 @@ class User {
     @Column({default:true})
     enabled:boolean;
     
-    @BeforeInsert()
-    @BeforeUpdate()
-    hashPassword(){
-        this.password = bcrypt.hashSync(this.password, 10)
-    }
     constructor(){
         if(!this.id) this.id = uuid();
     }
