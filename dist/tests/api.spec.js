@@ -1,7 +1,8 @@
-import {User} from  '../models/User'
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const User_1 = require("../models/User");
 // import request from 'supertest';
 // import {app} from '../server';
-
 // describe('Mostra os users disponiveis', ()=>{
 //   it('Passa a rota users e trás todos' ,async() =>{
 //     const {body ,status} = await request(app).get('/users');
@@ -27,10 +28,7 @@ import {User} from  '../models/User'
 //   })
 // })
 test('adds 1 + 2 to equal 3', () => {
-  const user = new User()
-
-  user.username = 'Paulo'
-  expect(user.username).toEqual('Paulo')
- });
-
-      
+    const user = new User_1.User();
+    user.username = 'Paulo';
+    expect(user.username).toEqual('Paulo');
+});
