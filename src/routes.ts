@@ -12,8 +12,8 @@ const routes = Router();
 
 routes.post("/auth", AuthController.auth);
 routes.get("/users/:id", UsersController.getOnlyOneUser);
-routes.get("/users", authMiddleware, UsersController.getUsers);
-// routes.get("/users", UsersController.getUsers);
+// routes.get("/users", authMiddleware, UsersController.getUsers);
+routes.get("/users", UsersController.getUsers);
 routes.post("/users",UsersController.createUser);
 routes.put("/users/:id", UsersController.updateUser);
 routes.delete("/users/:id", UsersController.deleteUser);
