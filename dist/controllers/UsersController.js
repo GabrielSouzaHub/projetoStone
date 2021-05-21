@@ -13,9 +13,8 @@ class UsersController {
             res.status(201).json({ Mensagem: "Usuário cadastrado com sucesso" });
         }
         catch (error) {
-            console.log(error);
             res.status(401).json({
-                erro: true,
+                erro: error,
                 mensagem: "Usuário não cadastrado",
                 tentativa: req.body
             });
