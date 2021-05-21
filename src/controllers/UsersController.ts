@@ -11,7 +11,6 @@ class UsersController {
         email, 
         profile_image
       } = req.body;
-      console.log(req);
       const usersService = new UsersService();
       await usersService.createUser({ email, profile_image });
       res.status(201).json({ Mensagem:"Usuário cadastrado com sucesso" });
