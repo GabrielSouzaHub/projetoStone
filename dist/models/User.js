@@ -8,21 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const typeorm_1 = require("typeorm");
-const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const uuid_1 = require("uuid");
 let User = class User {
     constructor() {
         if (!this.id)
             this.id = uuid_1.v4();
-    }
-    hashPassword() {
-        this.password = bcryptjs_1.default.hashSync(this.password, 10);
     }
 };
 __decorate([
@@ -37,10 +30,6 @@ __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], User.prototype, "password", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
@@ -85,13 +74,6 @@ __decorate([
     typeorm_1.Column({ default: true }),
     __metadata("design:type", Boolean)
 ], User.prototype, "enabled", void 0);
-__decorate([
-    typeorm_1.BeforeInsert(),
-    typeorm_1.BeforeUpdate(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], User.prototype, "hashPassword", null);
 User = __decorate([
     typeorm_1.Entity("users"),
     __metadata("design:paramtypes", [])
