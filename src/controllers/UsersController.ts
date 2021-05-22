@@ -15,7 +15,7 @@ class UsersController {
       await usersService.createUser({ email, profile_image });
       res.status(201).json({ Mensagem:"Usuário cadastrado com sucesso" });
     } catch (error) {
-       res.status(401).json({
+       res.status(400).json({
         erro: error,
         mensagem: "Usuário não cadastrado",
         tentativa: req.body

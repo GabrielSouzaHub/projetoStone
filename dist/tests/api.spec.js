@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const User_1 = require("../models/User");
+//import {User} from  '../models/User'
 // import request from 'supertest';
 // import {app} from '../server';
 // describe('Mostra os users disponiveis', ()=>{
@@ -27,8 +25,8 @@ const User_1 = require("../models/User");
 // )
 //   })
 // })
-test('adds 1 + 2 to equal 3', () => {
-    const user = new User_1.User();
-    user.username = 'Paulo';
-    expect(user.username).toEqual('Paulo');
-});
+// test('adds 1 + 2 to equal 3', () => {
+//   const user = new User()
+//   user.username = 'Paulo'
+//   expect(user.username).toEqual('Paulo')
+//  });
