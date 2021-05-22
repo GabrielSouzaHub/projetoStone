@@ -18,7 +18,7 @@ class AuthController {
          if(!user)
             return res.sendStatus(401);
          
-          const token = jwt.sign({id: user.id} ,process.env.KEY_JWT, {expiresIn:'365d'});
+          const token = jwt.sign({id: user.id} ,process.env.KEY_JWT);
          //  delete (user.password)
           return res.json({
              user,token,
