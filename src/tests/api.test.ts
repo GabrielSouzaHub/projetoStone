@@ -24,7 +24,7 @@ describe('Test My app server', () =>{
       email:"Papigaquigrafo@gmail.com",
       profile_image:"asdffafd_fqwf341234"
     })
-    expect(200);
+    expect(201)
     done()
    })
 })
