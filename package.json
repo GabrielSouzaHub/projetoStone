@@ -7,7 +7,7 @@
     "start": "node dist/server.js",
     "dev": "ts-node-dev --files --ignore-watch node_modules src/server.ts",
     "build": "tsc",
-    "test": "jest",
+    "test": "jest --transformIgnorePatterns \"node_modules/(?!vaquinhab)/\" --env=jsdom",
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
   },
   "repository": {
@@ -33,6 +33,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.14.2",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
@@ -49,5 +50,8 @@
   },
   "transform": {
     "\\.js$": "<rootDir>/node_modules/babel-jest"
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
