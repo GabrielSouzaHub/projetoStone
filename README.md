@@ -3,7 +3,7 @@
 <summary>Veja mais</summary>
 
 1.  [O que é o projeto](https://github.com/GabrielSouzaHub/projetoStone#O+que+%c3%a9+o+projeto)
-2.  [O que faz](https://github.com/GabrielSouzaHub/projetoStone#O%20que%20faz)
+2.  [O que faz](https://github.com/GabrielSouzaHub/projetoStone#O-que-faz)
 3.  [O que é uma api](https://github.com/GabrielSouzaHub/projetoStone#O+que+%c3%a9+uma+api) 
 4.  [Como está funcionando a api](https://github.com/GabrielSouzaHub/projetoStone#Como+est%c3%a1+funcionando+a+api)   
 5.  [Heroku](https://github.com/GabrielSouzaHub/projetoStone#Heroku)  
@@ -68,6 +68,8 @@ localhost:8080
 ### Rotas GET
 > Rota com intuito de encontrar todas vaquinhas
 <br> /fundraising/
+
+### Rotas POST
 
 > Rota com intuito de criar uma vaquinha
 <br> /fundraising/
