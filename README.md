@@ -2,15 +2,15 @@
 <details>
 <summary>Veja mais</summary>
 
-1.  [O que é o projeto](https://github.com/GabrielSouzaHub/projetoStone#O+que+%c3%a9+o+projeto)
+1.  [O que é o projeto](https://github.com/GabrielSouzaHub/projetoStone#O-que+%c3%a9-o-projeto)
 2.  [O que faz](https://github.com/GabrielSouzaHub/projetoStone#O-que-faz)
-3.  [O que é uma api](https://github.com/GabrielSouzaHub/projetoStone#O+que+%c3%a9+uma+api) 
-4.  [Como está funcionando a api](https://github.com/GabrielSouzaHub/projetoStone#Como+est%c3%a1+funcionando+a+api)   
+3.  [O que é uma api](https://github.com/GabrielSouzaHub/projetoStone#O-que-%c3%a9-uma-api) 
+4.  [Como está funcionando a api](https://github.com/GabrielSouzaHub/projetoStone#Como-est%c3%a1-funcionando-a-api)   
 5.  [Heroku](https://github.com/GabrielSouzaHub/projetoStone#Heroku)  
-6.  [Como baixar e rodar o projeto](https://github.com/GabrielSouzaHub/projetoStone#Como+baixar+e+rodar+o+projeto)       
-7.  [Rotas disponíveis](https://github.com/GabrielSouzaHub/projetoStone#Rotas+dispon%c3%adveis) 
-8.  [Tecnologias utilizadas](https://github.com/GabrielSouzaHub/projetoStone#Tecnologias+utilizadas) 
-9.  [Config Jest](https://github.com/GabrielSouzaHub/projetoStone#Config+Jest) 
+6.  [Como baixar e rodar o projeto](https://github.com/GabrielSouzaHub/projetoStone#Como-baixar-e-rodar-o-projeto)       
+7.  [Rotas disponíveis](https://github.com/GabrielSouzaHub/projetoStone#Rotas-dispon%c3%adveis) 
+8.  [Tecnologias utilizadas](https://github.com/GabrielSouzaHub/projetoStone#Tecnologias-utilizadas) 
+9.  [Config Jest](https://github.com/GabrielSouzaHub/projetoStone#Config-Jest) 
 10. [Contribuentes](https://github.com/GabrielSouzaHub/projetoStone#Contribuintes) 
 11. [Stone](https://github.com/GabrielSouzaHub/projetoStone#Stone) 
 </details>
