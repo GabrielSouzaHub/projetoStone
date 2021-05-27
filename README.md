@@ -112,15 +112,18 @@ localhost:8080
 > <br> /fundraising/
 > Exemplo de Post:
 
-      ```"fundraising_name":"Vaquinha pra comprar vacina do covid",
-         "description":"Vaquinha com intuito de vacinar a população",
-         "image":"https://images.pexels.com/photos/7467936/pexels-photo-7467936.jpeg?auto=compress&cs=tinysrgb&h=350",
-         "video":"Not found",
-         "value_donated":0,
-         "goal_meta":20000,
-         "validity":"10-27-2021"
-         "user_id": "< Id de um user existente >"
-      ```
+```Shell
+{
+ "fundraising_name":"Vaquinha pra comprar vacina do covid",
+ "description":"Vaquinha com intuito de vacinar a população",
+ "image":"https://images.pexels.com/photos/7467936/pexels-photo-7467936.jpeg?auto=compress&cs=tinysrgb&h=350",
+ "video":"Not found",
+ "value_donated":0,
+ "goal_meta":20000,
+ "validity":"10-27-2021",
+ "user_id": "< Id de um user existente >"
+}
+```
 
 ### Rotas PUT
 
