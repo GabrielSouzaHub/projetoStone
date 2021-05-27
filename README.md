@@ -11,7 +11,7 @@
 7.  [Rotas disponíveis](https://github.com/GabrielSouzaHub/projetoStone#Rotas+dispon%c3%adveis) 
 8.  [Tecnologias utilizadas](https://github.com/GabrielSouzaHub/projetoStone#Tecnologias+utilizadas) 
 9.  [Config Jest](https://github.com/GabrielSouzaHub/projetoStone#Config+Jest) 
-10. [Contribuentes](https://github.com/GabrielSouzaHub/projetoStone#Contribuentes) 
+10. [Contribuentes](https://github.com/GabrielSouzaHub/projetoStone#Contribuintes) 
 11. [Stone](https://github.com/GabrielSouzaHub/projetoStone#Stone) 
 </details>
 
