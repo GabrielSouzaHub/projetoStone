@@ -44,23 +44,23 @@ npm start
 localhost:8080
 ```
 # 🛣️ Rotas disponíveis
-## Rotas **Users**
-### 📌 Rotas GET
+## 📌 Rotas **Users**
+###  Rotas GET
 >Rota com intuito de encontrar um usuario pelo id
 <br> /users/:id
 
 > Rota com intuito de encontrar todos usuários
 <br> /users/
 
-### 📌 Rotas POST
+### Rotas POST
 > Rota com intuito de criar um usuário
 <br> /users/
 
-### 📌 Rotas PUT
+### Rotas PUT
 > Rota com intuito de atualizar um usuário(localizado pelo id)
 <br> /users/:id
 
-### 📌 Rotas DELETE
+### Rotas DELETE
 > Rota com intuito de deletar um usuário(localizado pelo id)
 <br> /users/:id
 
@@ -69,7 +69,7 @@ localhost:8080
 > Rota com intuito de encontrar todas vaquinhas
 <br> /fundraising/
 
-### 📌 Rotas POST
+### Rotas POST
 
 > Rota com intuito de criar uma vaquinha
 <br> /fundraising/
