@@ -1,4 +1,4 @@
-# Projeto Stone Ox Fundraising 🐂
+#  <img align="center" src = "./images/logo_OX.png" alt="Rosto touro Ox Fundraising" width="50px" heigth="50px">  Projeto Stone Ox Fundraising 
 
 <p align="center">
     <img src ="./images/logo_ox.trans.png" alt="Touro Ox fundraising">
@@ -112,8 +112,7 @@ localhost:8080
 > <br> /fundraising/
 > Exemplo de Post:
 
-      ```json
-         "fundraising_name":"Vaquinha pra comprar vacina do covid",
+      ```"fundraising_name":"Vaquinha pra comprar vacina do covid",
          "description":"Vaquinha com intuito de vacinar a população",
          "image":"https://images.pexels.com/photos/7467936/pexels-photo-7467936.jpeg?auto=compress&cs=tinysrgb&h=350",
          "video":"Not found",
