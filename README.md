@@ -141,11 +141,11 @@ localhost:8080
 > <br> /transaction
 
 # 🛠️ Tecnologias utilizadas
-
-1. Node.JS
-2. TypeORM
-3. Express
-4. PostgreSQL
+1. [TypeScript](https://www.typescriptlang.org/)
+2. [Node.JS](https://nodejs.org/en/)
+3. [TypeORM](https://typeorm.io/#/)
+4. [Express](https://expressjs.com/pt-br/)
+5. [PostgreSQL](https://www.postgresql.org/)
 
 # Config jest
 
