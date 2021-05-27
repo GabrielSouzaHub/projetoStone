@@ -3,7 +3,7 @@
 <summary>Veja mais</summary>
 
 1.  [O que é o projeto](https://github.com/GabrielSouzaHub/projetoStone#O+que+%c3%a9+o+projeto)
-2.  [O que faz](https://github.com/GabrielSouzaHub/projetoStone#O+que+faz)
+2.  [O que faz](https://github.com/GabrielSouzaHub/projetoStone#O%20que%20faz)
 3.  [O que é uma api](https://github.com/GabrielSouzaHub/projetoStone#O+que+%c3%a9+uma+api) 
 4.  [Como está funcionando a api](https://github.com/GabrielSouzaHub/projetoStone#Como+est%c3%a1+funcionando+a+api)   
 5.  [Heroku](https://github.com/GabrielSouzaHub/projetoStone#Heroku)  
@@ -33,7 +33,7 @@ git clone https://github.com/GabrielSouzaHub/projetoStone.git
 ```
 2. Instale as dependências
 ```Shell
-git install
+npm install
 ```
 3. Para rodar o projeto utilize
 ```Shell
@@ -88,5 +88,6 @@ localhost:8080
 # Config jest
 
 # Contribuintes
-## Stone - Produtos financeiros muito além da Maquininha
+# Stone
+## Produtos financeiros muito além da Maquininha
 Conectamos seu negócio com soluções de pagamento e gestão à um serviço local, que fala sua língua e te conhece pelo nome. Vem ser Stone.
