@@ -8,7 +8,7 @@ class CreateUsers1620820545778 {
             name: "users",
             columns: [
                 {
-                    name: "id",
+                    name: "user_id",
                     type: "uuid",
                     isPrimary: true,
                 },
