@@ -14,13 +14,17 @@ class TransactionsController {
             await UpdateCoinsUser(user_id, value_donated);
             await UpdateCoinsFundraising(fundraising_id, value_donated);
             const transactionsService = new TransactionsService_1.TransactionsService();
-            await transactionsService.createTransaction({ user_id, fundraising_id, value_donated });
+            await transactionsService.createTransaction({
+                user_id,
+                fundraising_id,
+                value_donated,
+            });
             res.status(201).json({ Mensagem: "Transação cadastrada com sucesso!" });
         }
         catch (error) {
             return res.status(400).json({
                 error: true,
-                mensagem: error
+                mensagem: error,
             });
         }
     }
@@ -33,25 +37,25 @@ class TransactionsController {
         catch (_a) {
             return res.status(400).json({
                 error: true,
-                mensagem: "Nenhuma vaquinha encontrado!"
+                mensagem: "Nenhuma vaquinha encontrado!",
             });
         }
     }
 }
 async function UpdateCoinsUser(id, coins) {
     const usersRepository = typeorm_1.getCustomRepository(UsersRepository_1.UsersRepository);
-    const user = await usersRepository.findOne({ id: id });
+    const user = await usersRepository.findOne({ user_id: id });
     if (coins > user.coins)
         throw new Error("Usuário não possui moedas suficientes para esta transação");
-    coins = (user.coins - coins);
-    usersRepository.merge(user, { "coins": coins });
+    coins = user.coins - coins;
+    usersRepository.merge(user, { coins: coins });
     await usersRepository.save(user);
 }
 async function UpdateCoinsFundraising(id, coins) {
     const fundraisingRepository = typeorm_1.getCustomRepository(FundraisingRepository_1.FundraisingRepository);
     const fundraising = await fundraisingRepository.findOne({ id: id });
-    coins = (fundraising.value_donated + coins);
-    fundraisingRepository.merge(fundraising, { "value_donated": coins });
+    coins = fundraising.value_donated + coins;
+    fundraisingRepository.merge(fundraising, { value_donated: coins });
     await fundraisingRepository.save(fundraising);
 }
 exports.default = new TransactionsController();

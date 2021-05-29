@@ -6,7 +6,7 @@
    
 ## 📖 Sumário
 
-<details>
+
 <summary>Veja mais</summary>
 
 1.  [O que é o projeto](https://github.com/GabrielSouzaHub/projetoStone#O-que-%c3%a9-o-projeto)
@@ -88,6 +88,13 @@ localhost:8080
 
 > Rota com intuito de criar um usuário
 > <br> /users/
+> Exemplo de Post Users:
+```Shell
+{
+"email": "nomeDeAlguemgmail.com",
+"profile_image": "https://images.pexels.com/photos/7467939/pexels-photo-7467939.jpeg?auto=compress&cs=tinysrgb&h=130"
+}
+```
 
 ### Rotas PUT
 
@@ -110,7 +117,7 @@ localhost:8080
 
 > Rota com intuito de criar uma vaquinha
 > <br> /fundraising/
-> Exemplo de Post:
+> Exemplo de Post Vaquinha:
 
 ```Shell
 {
@@ -146,10 +153,26 @@ localhost:8080
 3. [TypeORM](https://typeorm.io/#/)
 4. [Express](https://expressjs.com/pt-br/)
 5. [PostgreSQL](https://www.postgresql.org/)
-
-# Config jest
+6. [Jest](https://jestjs.io/pt-BR/docs/getting-started)
+# 🃏 Config jest
+    
+  Jest é a lib que usamos para testar nossa aplicação, ao dar o comando no terminal.
+  ```
+  yarn jest --init
+  ```
+  Criasse o arquivo jest.congif, como o projeto está em TypeScript é necessário alterar a linha preset, para:
+  `preset: 'ts-jest`
+  
+  E para fazer os testes do projeto, basta apenas inserir no terminal o comando 
+  ```
+  npm run test
+  ```
 
 # 🙍 Contribuintes
+   * [Paulo Ricardo](https://github.com/Paulo-oRicardo)     [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/paulo-yokoyama/)](https://www.linkedin.com/in/paulo-yokoyama/)
+   
+   
+   * [Gabriel Souza](https://github.com/GabrielSouzaHub)     [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gabrielsouzadev/)](https://www.linkedin.com/in/gabrielsouzadev/)
 
 # 💚 Stone
 

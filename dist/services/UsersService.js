@@ -9,7 +9,8 @@ class UsersService {
     }
     async createUser({ email, profile_image }) {
         const user = this.usersRepository.create({
-            email, profile_image
+            email,
+            profile_image,
         });
         const emailAlreadyExists = await this.usersRepository.findOne({
             email,
@@ -24,10 +25,10 @@ class UsersService {
         return await this.usersRepository.find({});
     }
     async getOnlyOneUser({ id }) {
-        return await this.usersRepository.findOne({ id: id });
+        return await this.usersRepository.findOne({ user_id: id });
     }
     async updateUser({ id }, att) {
-        const user = await this.usersRepository.findOne({ id: id });
+        const user = await this.usersRepository.findOne({ user_id: id });
         this.usersRepository.merge(user, att);
         await this.usersRepository.save(user);
         return user;

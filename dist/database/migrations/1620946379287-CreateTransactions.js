@@ -34,7 +34,7 @@ class CreateTransactions1620946379287 {
                 {
                     name: "FKUser",
                     referencedTableName: "users",
-                    referencedColumnNames: ["id"],
+                    referencedColumnNames: ["user_id"],
                     columnNames: ["user_id"]
                 },
                 {

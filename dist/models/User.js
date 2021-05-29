@@ -14,14 +14,14 @@ const typeorm_1 = require("typeorm");
 const uuid_1 = require("uuid");
 let User = class User {
     constructor() {
-        if (!this.id)
-            this.id = uuid_1.v4();
+        if (!this.user_id)
+            this.user_id = uuid_1.v4();
     }
 };
 __decorate([
     typeorm_1.PrimaryColumn(),
     __metadata("design:type", String)
-], User.prototype, "id", void 0);
+], User.prototype, "user_id", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)

@@ -4,15 +4,24 @@ const FundraisingService_1 = require("../services/FundraisingService");
 class FundraisingController {
     async createFundraising(req, res) {
         try {
-            const { fundraising_name, description, image, video, value_donated, goal_meta, validity, user_id } = req.body;
+            const { fundraising_name, description, image, video, value_donated, goal_meta, validity, user_id, } = req.body;
             const fundraisingService = new FundraisingService_1.FundraisingService();
-            const fundraising = await fundraisingService.createFundraising({ fundraising_name, description, image, video, value_donated, goal_meta, validity, user_id });
+            const fundraising = await fundraisingService.createFundraising({
+                fundraising_name,
+                description,
+                image,
+                video,
+                value_donated,
+                goal_meta,
+                validity,
+                user_id,
+            });
             return res.json(fundraising);
         }
         catch (error) {
             return res.status(400).json({
                 erro: true,
-                mensagem: error
+                mensagem: error,
             });
         }
     }
@@ -25,7 +34,7 @@ class FundraisingController {
         catch (_a) {
             return res.status(400).json({
                 error: true,
-                mensagem: "Nenhuma vaquinha encontrada!"
+                mensagem: "Nenhuma vaquinha encontrada!",
             });
         }
     }
@@ -33,13 +42,15 @@ class FundraisingController {
         try {
             const { id } = req.params;
             const fundraisingService = new FundraisingService_1.FundraisingService();
-            const fundraising = await fundraisingService.getOnlyOneFundraising({ id });
+            const fundraising = await fundraisingService.getOnlyOneFundraising({
+                id,
+            });
             return res.json(fundraising);
         }
         catch (_a) {
             return res.status(400).json({
                 error: true,
-                mensagem: "Nenhuma vaquinha encontrada!"
+                mensagem: "Nenhuma vaquinha encontrada!",
             });
         }
     }
@@ -53,7 +64,7 @@ class FundraisingController {
         catch (_a) {
             return res.status(400).json({
                 error: true,
-                mensagem: "Vaquinha não encontrada!"
+                mensagem: "Vaquinha não encontrada!",
             });
         }
     }

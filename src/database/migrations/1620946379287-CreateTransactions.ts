@@ -35,7 +35,7 @@ export class CreateTransactions1620946379287 implements MigrationInterface {
                     {
                         name:"FKUser",
                         referencedTableName:"users", 
-                        referencedColumnNames: ["id"],
+                        referencedColumnNames: ["user_id"],
                         columnNames:["user_id"]
                     },
                     {
