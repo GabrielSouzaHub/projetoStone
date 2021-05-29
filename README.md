@@ -24,7 +24,7 @@
 
 # O que é o projeto
 
-Este projeto é o back-end de uma aplicação web chamada [Ox fundraising](https://fundraiser-next.vercel.app/), cujo objetivo é gerenciar "vaquinhas". Projeto fruto de uma mentoria da Stone com o Resilia.
+Este projeto é o back-end de uma aplicação web chamada [Ox fundraising](https://oxfundraising.vercel.app/), cujo objetivo é gerenciar "vaquinhas". Projeto fruto de uma mentoria da Stone com o Resilia.
 
 # O que faz
 
