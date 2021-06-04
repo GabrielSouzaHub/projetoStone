@@ -46,7 +46,7 @@ Esta API foi desenvolvida em Node.JS, TypeORM, Express e PostgreSQL, tendo seu d
 Heroku é uma plataforma que disponibiliza em nuvem a hospedagem de uma aplicação back-end.<br>
 [Acesse nossa API](https://fundraisingoxdev.herokuapp.com/users) para ver seu funcionamento no mesmo.
 
-# 💻 Como Baixar e rodar o Projeto
+# Como Baixar e rodar o Projeto
 
 1. 📌 Clone o projeto
 
@@ -72,7 +72,7 @@ npm start
 localhost:8080
 ```
 
-# 🛣️ Rotas disponíveis
+# Rotas disponíveis
 
 ## 📌 Rotas **Users**
 
@@ -147,14 +147,14 @@ localhost:8080
 > Rota com intuito de criar uma transação
 > <br> /transaction
 
-# 🛠️ Tecnologias utilizadas
+# Tecnologias utilizadas
 1. [TypeScript](https://www.typescriptlang.org/)
 2. [Node.JS](https://nodejs.org/en/)
 3. [TypeORM](https://typeorm.io/#/)
 4. [Express](https://expressjs.com/pt-br/)
 5. [PostgreSQL](https://www.postgresql.org/)
 6. [Jest](https://jestjs.io/pt-BR/docs/getting-started)
-# 🃏 Config jest
+# Config jest
     
   Jest é a lib que usamos para testar nossa aplicação, ao dar o comando no terminal.
   ```
@@ -168,13 +168,13 @@ localhost:8080
   npm run test
   ```
 
-# 🙍 Contribuintes
+# Contribuintes
    * [Paulo Ricardo](https://github.com/Paulo-oRicardo)     [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/paulo-yokoyama/)](https://www.linkedin.com/in/paulo-yokoyama/)
    
    
    * [Gabriel Souza](https://github.com/GabrielSouzaHub)     [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gabrielsouzadev/)](https://www.linkedin.com/in/gabrielsouzadev/)
 
-# [Stone]💚 Stone
+# Stone
 
 ## Produtos financeiros muito além da Maquininha
 
