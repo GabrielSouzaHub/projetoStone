@@ -174,7 +174,7 @@ localhost:8080
    
    * [Gabriel Souza](https://github.com/GabrielSouzaHub)     [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gabrielsouzadev/)](https://www.linkedin.com/in/gabrielsouzadev/)
 
-💚 # Stone
+# Stone 💚
 
 ## Produtos financeiros muito além da Maquininha
 
